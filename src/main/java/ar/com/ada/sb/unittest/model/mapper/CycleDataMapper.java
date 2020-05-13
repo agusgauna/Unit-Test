@@ -1,4 +1,4 @@
-package ar.com.ada.sb.unittest.model.mapper.circular.dependency;
+package ar.com.ada.sb.unittest.model.mapper;
 
 import org.mapstruct.Context;
 import org.mapstruct.InheritInverseConfiguration;

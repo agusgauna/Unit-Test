@@ -29,11 +29,11 @@ class ProductRepositoryTest {
     @Test @Order(0)
     public void whenSaveThenReturnAProductWhitId(){
         //GIVEN
-        Product product = new Product().builder()
-                .name("P1")
-                .description("DESC 1")
-                .price(new BigInteger("10"))
-                .build();
+        Product product = new Product()
+                .setName("P1")
+                .setDescription("DESC 1")
+                .setPrice(new BigInteger("10"));
+
         //WHEN
         Product saved = productRepository.save(product);
 
