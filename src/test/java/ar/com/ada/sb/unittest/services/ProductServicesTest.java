@@ -3,14 +3,14 @@ package ar.com.ada.sb.unittest.services;
 import ar.com.ada.sb.unittest.model.dto.ProductDto;
 import ar.com.ada.sb.unittest.model.entity.Product;
 import ar.com.ada.sb.unittest.model.mapper.CycleAvoidingMappingContext;
+import ar.com.ada.sb.unittest.model.mapper.ProductMapper;
 import ar.com.ada.sb.unittest.model.repository.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.awt.print.Book;
-import java.lang.reflect.Array;
+
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +23,8 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class ProductServicesTest {
+
+    private final ProductMapper productMapper = ProductMapper.MAPPER;
 
     @Mock
     private ProductRepository productRepository;
@@ -70,8 +72,8 @@ class ProductServicesTest {
                     .setDescription("Description 1")
                     .setPrice(new BigInteger("1000"));
 
-            ProductDto dto = new ProductDto();
             when(productRepository.save(any(Product.class))).thenReturn(product);
+            ProductDto dto = new ProductDto();
 
             //WHEN
             ProductDto dtoSaved = productServices.save(dto);
